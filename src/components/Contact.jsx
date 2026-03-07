@@ -1,8 +1,41 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+    const form = useRef();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [statusMessage, setStatusMessage] = useState('');
+    const [isError, setIsError] = useState(false);
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setStatusMessage('');
+        setIsError(false);
+
+        emailjs.sendForm(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            form.current,
+            {
+                publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+            }
+        )
+            .then((result) => {
+                console.log(result.text);
+                setStatusMessage('Message sent successfully!');
+                setIsSubmitting(false);
+                e.target.reset(); // Clear the form
+            }, (error) => {
+                console.log(error.text);
+                setStatusMessage('Failed to send message. Please try again.');
+                setIsError(true);
+                setIsSubmitting(false);
+            });
+    };
+
     return (
         <section id="contact" className="py-24 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,12 +134,14 @@ const Contact = () => {
                         viewport={{ once: true }}
                         className="lg:col-span-8"
                     >
-                        <form className="glass p-8 md:p-12 rounded-[2.5rem] space-y-6">
+                        <form ref={form} onSubmit={sendEmail} className="glass p-8 md:p-12 rounded-[2.5rem] space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-sm font-bold text-gray-400 ml-1">Full Name</label>
                                     <input
                                         type="text"
+                                        name="user_name"
+                                        required
                                         placeholder="John Doe"
                                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white/10 transition-all text-white"
                                     />
@@ -115,6 +150,8 @@ const Contact = () => {
                                     <label className="text-sm font-bold text-gray-400 ml-1">Email Address</label>
                                     <input
                                         type="email"
+                                        name="user_email"
+                                        required
                                         placeholder="john@example.com"
                                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white/10 transition-all text-white"
                                     />
@@ -125,6 +162,7 @@ const Contact = () => {
                                 <label className="text-sm font-bold text-gray-400 ml-1">Company (Optional)</label>
                                 <input
                                     type="text"
+                                    name="company"
                                     placeholder="Your Company Name"
                                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white/10 transition-all text-white"
                                 />
@@ -133,19 +171,39 @@ const Contact = () => {
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-gray-400 ml-1">Project Details</label>
                                 <textarea
+                                    name="message"
+                                    required
                                     rows="5"
                                     placeholder="Tell us about your project..."
                                     className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white/10 transition-all text-white resize-none"
                                 />
                             </div>
 
-                            <button
-                                type="submit"
-                                className="w-full md:w-auto px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-secondary transition-all flex items-center justify-center gap-2 shadow-xl shadow-primary/20 group"
-                            >
-                                Send Message
-                                <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                            </button>
+                            <div className="flex flex-col sm:flex-row items-center gap-4">
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="w-full md:w-auto px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-secondary transition-all flex items-center justify-center gap-2 shadow-xl shadow-primary/20 group disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    {isSubmitting ? (
+                                        <>
+                                            Sending...
+                                            <Loader2 className="w-5 h-5 animate-spin" />
+                                        </>
+                                    ) : (
+                                        <>
+                                            Send Message
+                                            <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        </>
+                                    )}
+                                </button>
+
+                                {statusMessage && (
+                                    <span className={`text-sm font-medium ${isError ? 'text-red-400' : 'text-green-400'}`}>
+                                        {statusMessage}
+                                    </span>
+                                )}
+                            </div>
                         </form>
                     </motion.div>
                 </div>
