@@ -5,12 +5,25 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
+
+            const sections = document.querySelectorAll('section');
+            let current = 'home';
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id') || current;
+                }
+            });
+            setActiveSection(current);
         };
+
         window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check on mount
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -41,15 +54,19 @@ const Navbar = () => {
 
                     {/* Desktop Nav */}
                     <div className="hidden md:flex items-center gap-8">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-                            >
-                                {link.name}
-                            </a>
-                        ))}
+                        {navLinks.map((link) => {
+                            const isActive = activeSection === link.href.substring(1);
+                            return (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    className={`relative text-sm font-medium transition-colors group py-1 ${isActive ? 'text-white' : 'text-gray-300 hover:text-white'}`}
+                                >
+                                    {link.name}
+                                    <span className={`absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-300 ease-out rounded-full ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                                </a>
+                            );
+                        })}
                         <a
                             href="#contact"
                             className="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-secondary transition-all shadow-lg shadow-primary/20"

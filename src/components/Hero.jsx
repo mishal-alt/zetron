@@ -4,7 +4,7 @@ import { ArrowRight, Terminal } from 'lucide-react';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <section id="home" className="relative min-h-screen flex items-center pt-32 lg:pt-40 pb-20 overflow-hidden">
             {/* Background Glows */}
             <div className="hero-glow top-0 -left-64 opacity-50" />
             <div className="hero-glow bottom-0 -right-64 opacity-30" />
@@ -12,15 +12,7 @@ const Hero = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="text-left max-w-2xl">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border border-white/10 text-[10px] font-mono tracking-widest text-primary mb-8"
-                        >
-                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                            <span>SYSTEM STATUS: ALL CLUSTERS OPERATIONAL // LATENCY: 12ms</span>
-                        </motion.div>
+
 
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
