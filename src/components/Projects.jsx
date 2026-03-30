@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle2, Cpu, Smartphone, BarChart3 } from 'lucide-react';
+import { ExternalLink, CheckCircle2, Cpu, Smartphone, BarChart3, Palette } from 'lucide-react';
 
 
 const projects = [
@@ -60,6 +60,25 @@ const projects = [
         icon: BarChart3,
         status: 'Production',
         buildId: 'v3.1.5-stable'
+    },
+    {
+        name: 'ArtLoom',
+        tagline: 'Curated Fine Arts & Canvas Gallery',
+        industry: 'Art & E-Commerce',
+        client: 'ArtLoom Studios',
+        description: 'A premium digital gallery designed specifically for the exhibition and sale of original abstract drawings, canvas paintings, and landscape artworks. The platform features high-fidelity zoom capabilities for examining brushstrokes, custom framing simulations, and secure global logistics integration.',
+        image: '/images/artloom.png',
+        features: [
+            'High-Fidelity Artwork Zoom',
+            'Custom Framing Simulator',
+            'Global Logistics & Art Shipping',
+            'Authenticity Certificate Minting',
+        ],
+        techStack: ['React 18', 'Tailwind CSS', 'WebGL', 'Stripe', 'Sanity CMS'],
+        impact: 'Increased direct-to-collector painting sales by 180% with an immersive buyer experience and seamless checkout.',
+        icon: Palette,
+        status: 'Production',
+        buildId: 'v2.0.1-stable'
     }
 ];
 
