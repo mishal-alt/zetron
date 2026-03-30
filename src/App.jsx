@@ -32,3 +32,8 @@ function App() {
 }
 
 export default App;
+<<<<<<< HEAD
+=======
+
+//mishal worked
+>>>>>>> d670b57fe9cbb8635753ed849bf6c5323eb02d1c
