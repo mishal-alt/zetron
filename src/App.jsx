@@ -34,7 +34,13 @@ function App() {
 export default App;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // ashfak
 =======
 //nabeel 
 >>>>>>> 8353139231fb432eaeb1e4b60a636d57e21aaab3
+=======
+//nabeel    
+
+//ddfghjbndfgfhj
+>>>>>>> 9792f75a7da8d65117e839202481bd1418146f8a
