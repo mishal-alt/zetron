@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle2, Cpu, Smartphone, BarChart3, Palette } from 'lucide-react';
+import { ExternalLink, CheckCircle2, Cpu, Smartphone, BarChart3, Palette, Car } from 'lucide-react';
 
 
 const projects = [
@@ -79,6 +79,25 @@ const projects = [
         icon: Palette,
         status: 'Production',
         buildId: 'v2.0.1-stable'
+    },
+    {
+        name: 'hotwheels',
+        tagline: 'Precision E-Commerce for Collectors',
+        industry: 'Automotive & Retail',
+        client: 'Mattel Digital Division',
+        description: 'A high-velocity e-commerce portal engineered for the global die-cast collector community. Featuring a real-time inventory engine, dynamic bidding systems, and a high-fidelity 3D car viewer for inspecting rare models.',
+        image: '/images/hotwheels.png',
+        features: [
+            'Real-time Auction Sync',
+            '3D Interactive Car Viewer',
+            'Collector Rarity Indexing',
+            'Instant Checkout Workflows',
+        ],
+        techStack: ['Next.js', 'Three.js', 'Redis', 'Node.js'],
+        impact: 'Reduced auction latency by 75% and increased high-value collector engagement by 40% globally.',
+        icon: Car,
+        status: 'Production',
+        buildId: 'v4.2.0-beta'
     }
 ];
 
