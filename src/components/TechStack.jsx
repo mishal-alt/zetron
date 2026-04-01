@@ -28,12 +28,12 @@ const TechStack = () => {
   return (
     <section id="tech" className="py-32 px-6 md:px-12 bg-surface-container-lowest overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+        <div className="flex flex-col md:flex-row md:justify-between items-start md:items-end mb-20 gap-8">
           <div className="max-w-2xl">
-            <span className="font-label text-xs tracking-[0.4em] uppercase text-on-surface-variant mb-4 block">06 / Architecture</span>
-            <h2 className="font-headline text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase whitespace-nowrap">TECH STACK.</h2>
+            <span className="font-label text-xs tracking-[0.4em] uppercase text-on-surface-variant mb-6 block">06 / Architecture</span>
+            <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase">TECH STACK.</h2>
           </div>
-          <div className="text-on-surface-variant font-headline italic text-xl">Battle-tested tools for elite systems.</div>
+          <div className="text-on-surface-variant font-headline italic text-xl sm:text-2xl">Battle-tested tools for elite systems.</div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant/10 border border-outline-variant/10">
@@ -44,7 +44,7 @@ const TechStack = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-surface group p-12 hover:bg-surface-container-low transition-colors duration-500"
+              className="bg-surface group p-8 md:p-12 hover:bg-surface-container-low transition-colors duration-500"
             >
               <div className="flex items-center gap-4 mb-8">
                 <span className="material-symbols-outlined text-white/20 group-hover:text-white transition-colors">

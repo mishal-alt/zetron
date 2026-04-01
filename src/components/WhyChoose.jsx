@@ -38,12 +38,12 @@ const WhyChoose = () => {
   return (
     <section className="py-32 px-6 md:px-12 bg-background border-t border-outline-variant/10">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+        <div className="flex flex-col md:flex-row md:justify-between items-start md:items-end mb-20 gap-8">
           <div className="max-w-2xl">
-            <span className="font-label text-xs tracking-[0.4em] uppercase text-on-surface-variant mb-4 block">07 / Engineering standards</span>
-            <h2 className="font-headline text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase whitespace-nowrap">PRINCIPLES.</h2>
+            <span className="font-label text-xs tracking-[0.4em] uppercase text-on-surface-variant mb-6 block">07 / Engineering standards</span>
+            <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase">PRINCIPLES.</h2>
           </div>
-          <div className="text-on-surface-variant font-headline italic text-xl">Architectural integrity, uncompromising quality.</div>
+          <div className="text-on-surface-variant font-headline italic text-xl sm:text-2xl">Architectural integrity, uncompromising quality.</div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-variant/10 border border-outline-variant/10">

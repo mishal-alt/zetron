@@ -25,20 +25,21 @@ const CTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-headline text-6xl md:text-9xl font-black text-white tracking-[0.1em] mb-12 uppercase"
+          className="font-headline text-4xl md:text-8xl font-black text-white tracking-[0.1em] mb-12 uppercase"
         >
           READY TO SYNC?
         </motion.h2>
-        <motion.button 
+        <motion.a 
+          href="#contact"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
           whileHover={{ scale: 1.05 }}
-          className="bg-primary text-on-primary px-16 py-6 font-headline font-bold uppercase tracking-[0.4em] text-sm hover:px-20 transition-all duration-700"
+          className="inline-block bg-primary text-on-primary px-16 py-6 font-headline font-bold uppercase tracking-[0.4em] text-sm hover:px-20 transition-all duration-700"
         >
-          Initiate Protocol
-        </motion.button>
+          Connect with Us
+        </motion.a>
       </div>
     </section>
   );

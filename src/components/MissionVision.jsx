@@ -10,11 +10,11 @@ const MissionVision = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-surface p-16 group hover:bg-surface-container-low transition-colors duration-500"
+            className="bg-surface p-8 md:p-16 group hover:bg-surface-container-low transition-colors duration-500"
           >
             <div className="flex items-center gap-4 mb-10">
               <span className="material-symbols-outlined text-4xl text-white group-hover:scale-110 transition-transform">target</span>
-              <h3 className="font-headline text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.4em]">Engineering Mission</h3>
+              <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase">MISSION & VISION.</h2>
             </div>
             <p className="font-body text-xl text-white leading-relaxed font-light italic">
               To architect immutable, highly-available distributed systems that empower modern enterprises. We reject monolithic approaches in favor of decoupling and aggressive automation.

@@ -52,11 +52,11 @@ const Hero = () => {
             className="flex flex-col md:flex-row gap-6"
           >
             <a href="#contact" className="bg-white text-black px-12 py-5 font-headline font-bold uppercase tracking-[0.2em] hover:bg-white/90 transition-all cursor-pointer text-center">
-              Start Project
+              Connect with Us
             </a>
-            <button className="border border-white/20 text-white px-12 py-5 font-headline font-bold uppercase tracking-[0.2em] hover:bg-white/5 transition-all cursor-pointer">
+            <a href="#projects" className="border border-white/20 text-white px-12 py-5 font-headline font-bold uppercase tracking-[0.2em] hover:bg-white/5 transition-all cursor-pointer text-center">
               Explore Works
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>

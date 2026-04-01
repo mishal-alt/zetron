@@ -34,12 +34,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-40 px-6 md:px-12 bg-surface-container-lowest border-t border-outline-variant/10">
+    <section id="contact" className="py-20 md:py-40 px-6 md:px-12 bg-surface-container-lowest border-t border-outline-variant/10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-start">
           <div>
             <span className="font-label text-xs tracking-[0.4em] uppercase text-on-surface-variant mb-4 block">04 / Connection</span>
-            <h2 className="font-headline text-5xl md:text-8xl font-bold text-white tracking-tighter uppercase mb-12">
+            <h2 className="font-headline text-4xl sm:text-6xl md:text-7xl font-bold text-white tracking-tighter uppercase mb-8 md:mb-12">
               INITIATE<br/>
               <span className="text-on-surface-variant font-light italic">SYNC.</span>
             </h2>
@@ -109,7 +109,7 @@ const Contact = () => {
                 disabled={isSubmitting}
                 className="bg-white text-black px-12 py-5 font-headline font-extrabold uppercase tracking-[0.4em] text-xs hover:bg-white/90 transition-all disabled:opacity-50"
               >
-                {isSubmitting ? 'DISPATCHING...' : 'INITIATE PROTOCOL'}
+                {isSubmitting ? 'DISPATCHING...' : 'CONNECT NOW'}
               </button>
               
               {statusMessage && (

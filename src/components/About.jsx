@@ -13,9 +13,9 @@ const About = () => {
             transition={{ duration: 1 }}
           >
             <span className="font-label text-xs tracking-[0.4em] uppercase text-on-surface-variant mb-6 block">05 / The Collective</span>
-            <h2 className="font-headline text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase mb-12">
+            <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase mb-8 md:mb-12">
               BUILDING<br/>
-              <span className="text-on-surface-variant font-light italic text-4xl md:text-6xl tracking-widest whitespace-nowrap">RESILIENT INFRASTRUCTURE.</span>
+              <span className="text-on-surface-variant font-light italic text-xl sm:text-4xl md:text-6xl tracking-[0.2em] md:tracking-widest block md:inline">RESILIENT INFRASTRUCTURE.</span>
             </h2>
             <div className="space-y-8 text-on-surface-variant text-lg font-light leading-relaxed">
               <p>
