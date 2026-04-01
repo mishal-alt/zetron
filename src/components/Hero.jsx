@@ -1,82 +1,67 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Terminal } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
-    return (
-        <section id="home" className="relative min-h-screen flex items-center pt-32 lg:pt-40 pb-20 overflow-hidden">
-            {/* Background Glows */}
-            <div className="hero-glow top-0 -left-64 opacity-50" />
-            <div className="hero-glow bottom-0 -right-64 opacity-30" />
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="text-left max-w-2xl">
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
 
-
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-[1.1]"
-                        >
-                            <span className="gradient-text">Architecting High-Performance</span>
-                            <br />
-                            <span className="text-white">Distributed Systems</span>
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed"
-                        >
-                            ZETRON TECH is an elite engineering collective building scalable, fault-tolerant infrastructure and complex digital ecosystems for modern enterprises.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="flex flex-col sm:flex-row items-center gap-4"
-                        >
-                            <a
-                                href="#contact"
-                                className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-secondary transition-all flex items-center justify-center gap-3 group shadow-xl shadow-primary/30 text-sm uppercase tracking-widest"
-                            >
-                                <Terminal className="w-5 h-5" />
-                                Initialize Project
-                            </a>
-                            <a
-                                href="#process"
-                                className="w-full sm:w-auto px-8 py-4 glass text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-2 text-sm uppercase tracking-widest"
-                            >
-                                View Architecture
-                            </a>
-                        </motion.div>
-                    </div>
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative hidden lg:block"
-                    >
-                        <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full" />
-                        <div className="relative z-10 p-1 rounded-3xl bg-gradient-to-br from-white/10 to-transparent">
-                            <div className="rounded-[1.4rem] overflow-hidden">
-                                <img
-                                    src="/images/hero-tech.png"
-                                    alt="ZETRON TECH Engineering Workspace"
-                                    className="w-full h-auto shadow-2xl object-cover"
-                                />
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section ref={containerRef} id="home" className="relative h-screen flex items-end px-6 md:px-12 pb-24 overflow-hidden bg-[#050505]">
+      <div className="absolute inset-0 z-0">
+        <motion.div style={{ y, scale }} className="absolute inset-0">
+          <img 
+            className="w-full h-full object-cover grayscale brightness-110 contrast-125" 
+            alt="Cinematic high-contrast monochrome architecture" 
+            src="/images/hero-bg.png"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-black/20 z-10"></div>
+      </div>
+      
+      <div className="relative z-20 w-full max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h1 className="font-headline font-extrabold text-display-lg text-white mb-8 md:mb-4 uppercase tracking-tighter">
+            ARCHITECTING<br/>
+            <span className="text-on-surface-variant font-light italic">THE VOID.</span>
+          </h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-xl text-on-surface-variant text-lg md:text-xl font-light mb-12 leading-relaxed"
+          >
+            We design, engineer, and deploy high-concurrency digital infrastructure for the modern enterprise. Cinematic interfaces meet precision-driven code for zero downtime and infinite scale.
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col md:flex-row gap-6"
+          >
+            <a href="#contact" className="bg-white text-black px-12 py-5 font-headline font-bold uppercase tracking-[0.2em] hover:bg-white/90 transition-all cursor-pointer text-center">
+              Start Project
+            </a>
+            <button className="border border-white/20 text-white px-12 py-5 font-headline font-bold uppercase tracking-[0.2em] hover:bg-white/5 transition-all cursor-pointer">
+              Explore Works
+            </button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;
