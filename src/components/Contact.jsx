@@ -50,8 +50,8 @@ const Contact = () => {
             <div className="space-y-8">
               <div className="flex items-center gap-6 group">
                 <span className="material-symbols-outlined text-white/20 group-hover:text-white transition-colors">mail</span>
-                <a href="mailto:sync@zetron.tech" className="text-white font-headline text-sm font-bold uppercase tracking-[0.2em] hover:text-white/60 transition-colors">
-                  sync@zetron.tech
+                <a href="mailto:zetrontechin@gmail.com" className="text-white font-headline text-sm font-bold uppercase tracking-[0.2em] hover:text-white/60 transition-colors">
+                  zetrontechin@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-6 group">
