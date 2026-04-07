@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="flex flex-col gap-4">
             <span className="text-white font-headline text-xs font-bold uppercase tracking-[0.2em]">Social</span>
             <a className="text-[#474747] hover:text-white transition-colors font-body text-[10px] tracking-[0.2em] uppercase" href="#">LinkedIn</a>
-            <a className="text-[#474747] hover:text-white transition-colors font-body text-[10px] tracking-[0.2em] uppercase" href="#">X (Twitter)</a>
+            <a className="text-[#474747] hover:text-white transition-colors font-body text-[10px] tracking-[0.2em] uppercase" href="https://www.instagram.com/zetron.tech/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
           <div className="flex flex-col gap-4">
             <span className="text-white font-headline text-xs font-bold uppercase tracking-[0.2em]">Legal</span>
@@ -32,7 +32,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-4">
             <span className="text-white font-headline text-xs font-bold uppercase tracking-[0.2em]">Contact</span>
-            <a className="text-[#474747] hover:text-white transition-colors font-body text-[10px] tracking-[0.2em] uppercase" href="mailto:sync@zetron.tech">sync@zetron.tech</a>
+            <a className="text-[#474747] hover:text-white transition-colors font-body text-[10px] tracking-[0.2em] uppercase" href="mailto:zetrontechin@gmail.com">zetrontechin@gmail.com</a>
           </div>
         </div>
       </div>
